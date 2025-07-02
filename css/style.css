@@ -8,3 +8,44 @@ background-color: #fcfaf3;
 .my-navbar {
   background-color: #0082c9;
 }
+.custom-text-color{
+	color: #ff9900;
+}
+.img-fluid {
+	align-content: left;
+}
+.transparent {
+	opacity: 0.4;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.image-container img {
+  display: block;
+  width: 100%;
+  opacity: 0.4;
+}
+
+.image-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-size: 29px;
+  font-weight: bold;
+  text-align: center;
+  font-family: Angsana New;
+}
+.navbar-brand {
+  font-size: 1.8rem;
+}
+.videotutorials {
+	font-size: 70px;
+	text-align: center;
+	font-family: Angsana New;
+}
+
