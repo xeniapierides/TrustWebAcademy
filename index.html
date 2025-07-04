@@ -9,31 +9,70 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-	<nav class="navbar my-navbar">
-  <div class="container-fluid">
-    <a class="navbar-brand ms-auto custom-text-color" href="#"> Home
-      <img src="img/logo.png" alt="Logo" width="90" height="auto" class="d-inline-block align-text-center ms-2">      
-    </a>
+<nav class="navbar my-navbar">
+  <div class="container-fluid d-flex justify-content-end">
+    <ul class="nav ms-auto mb-2 mb-lg-0 flex-row-reverse">
+    	 <li class="nav-item d-flex align-items-center">
+        <a class="nav-link custom-text-color" href="index.html">
+          
+          <img src="img/logo.png" alt="Logo" width="90" height="auto" class="d-inline-block align-text-center ms-2">
+        </a>
+      </li>
+      <li class="videos align-text-center">
+        <a class="nav-link custom-text-color" href="index.html">Home</a>
+      </li>
+       <li class="videos align-text-center">
+        <a class="nav-link custom-text-color" href="videospage.html">Video Tutorials</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link custom-text-color" href="articles.html">Articles</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link custom-text-color" href="tedtalkspodcasts.html">TED talks</a>
+      </li> 
+      <li class="nav-item">
+        <a class="nav-link custom-text-color" href="games.html">Games</a>
+      </li> 
+      <li class="nav-item">
+        <a class="nav-link custom-text-color" href="chat.html">Chat</a>
+      </li> 
+      <li class="nav-item">
+        <a class="nav-link custom-text-color" href="recommendedapps.html">Recommended Apps</a>
+      </li>      
+    </ul>
   </div>
-	</nav>
+</nav>
+<style>
+  .custom-text-color {
+    color: #ff9900 !important;
+    font-size: 1.4rem;
+  }
+</style>
+
+
 	<div class="container">
 		<div class="row">
-			<div class="col-md-5">
+			<div class="col-xs-12 col-md-5">
+			<br><br>	
 				<img src="img/logo.png" class="img-fluid">
 			</div>
-			<div class="col-md-7">
+			<div class="col-xs-12 col-md-7 pink">
 				<h1>
 					Welcome to TrustWeb Academy!
 				</h1>
-				<br>
+				<br><br>
 				<h5>
 					At TrustWeb Academy, our mission is to empower everyone with the knowledge and tools to stay safe online. Here, you’ll find easy-to-understand tutorials, practical tips, and interactive resources to help you spot scams, protect your privacy, and build strong digital habits. Explore videos, guides, and fun activities — all designed to make cybersecurity simple and accessible for all.
 				</h5>
+			<br>	
 			</div>		
 		</div>
-		<br><br><br><br>
+		<br>
+	</div>
+	<br>
+	<div class="container">
 		<div class="row">
-			<div class="col-md-4">
+			<div class="col-xs-12 col-md-4">
 					<div class="image-container">
 						<a href="videospage.html">
 							<img src="img/video.png" alt="Video" class="img-fluid transparent">
@@ -41,49 +80,62 @@
 						</a>  					
 					</div>
 			</div>
-			<div class="col-md-4">
+			<div class="col-xs-12 col-md-4">
 				<div class="image-container">
-  					<img src="img/article.png" alt="article" class="img-fluid transparent">
+					<a href="articles.html">
+  					<img src="img/articles.png" alt="Articles" class="img-fluid transparent">
   					<div class="image-text">Articles</div>
+  				</a>	
 				</div>
 			</div>
-			<div class="col-md-4">
+			<div class="col-xs-12 col-md-4">
 				<div class="image-container">
+					<a href="tedtalkspodcasts.html">
   					<img src="img/ted.png" alt="ted" class="img-fluid transparent">
   					<div class="image-text">TED talks/ Podcasts</div>
+  				</a>
 				</div>
 			</div>
 		</div>
 		<br>
 		<br>
 		<div class="row">
-			<div class="col-md-4">
+			<div class="col-xs-12 col-md-4">
 				<div class="image-container">
-  					<img src="img/apps.png" alt="apps" class="img-fluid transparent">
-  					<div class="image-text">Recommended Apps</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="image-container">
-  					<img src="img/chat.png" alt="chat" class="img-fluid transparent">
-  					<div class="image-text">Chat</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="image-container">
+					<a href="games.html">
   					<img src="img/games.png" alt="games" class="img-fluid transparent">
   					<div class="image-text">Games</div>
+  				</a>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-4">
+				<div class="image-container">
+					<a href="chat.html">
+  					<img src="img/chat.png" alt="chat" class="img-fluid transparent">
+  					<div class="image-text">Chat</div>
+  				</a>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-4">
+				<div class="image-container">
+					<a href="recommendedapps.html">
+  					<img src="img/apps.png" alt="apps" class="img-fluid transparent">
+  					<div class="image-text">Recommended Apps</div>
+  				</a>
 				</div>
 			</div>
 		</div>
 		<br><br><br><br><br>
+	</div>
+	<div class="container orange">
+		<br><br>
 		<div class="row">
-			<div class="col-md-3">
+			<div class="col-xs-4 col-md-3">
 				<h3>
 					⚙️ Functions
 				</h3>
 			</div>
-			<div class="col-md-9">
+			<div class="col-xs-8 col-md-9">
 				<p>
 					On TrustWeb Academy, you can explore video tutorials, TED Talks, podcasts, and articles filled with tips on online safety and scam awareness. Test your knowledge with fun quizzes, discover recommended apps to protect yourself, and join an open chat where you can connect and share experiences with other users.
 				</p>
@@ -91,18 +143,19 @@
 		</div>	
 		<br> <br>
 		<div class="row">
-			<div class="col-md-3">
+			<div class="col-xs-4 col-md-3">
 				<h3>
 					👩‍💻 About me
 				</h3>
 			</div>
-			<div class="col-md-9">
+			<div class="col-xs-8 col-md-9">
 				<p>
 					Hi! I’m Xenia Pierides, a high school student from Cyprus with a big passion for technology and online safety. After seeing how easily friends and family could fall for scams or struggle with privacy, I decided to create TrustWeb Academy. My goal is to make cybersecurity simple, friendly, and fun so everyone can feel confident and safe online.
 				</p>
 			</div>
-		</div>	
-
+		</div>
+	<br>
 	</div>
+	<br>
 </body>
 </html>
