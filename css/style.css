@@ -1,6 +1,6 @@
 body {
   background-image: url('../img/background.png');
-  background-size: cover;
+  background-size: contain
   background-position: center;
 }
 
@@ -64,7 +64,7 @@ background-color: #fcfaf3;
   padding: 15px;
   border-radius: 8px;
   font-family: Angsana New;
-  background-color: #f4addd;
+  background-color: #f7c9df;
   border-color: #e66cc0;
   margin: 20px auto;
 }
@@ -95,5 +95,15 @@ background-color: #fcfaf3;
     background-color: #ffcc66;
   }
   .pink {
-    background-color: #f4addd;
+    background-color: #f7c9df;
   }
+  .card:hover {
+      transform: scale(1.07);
+      transition: transform 0.2s;
+    }
+    .chat {
+      height: 225px;
+    }
+    .articles {
+      height: 195px;
+    }

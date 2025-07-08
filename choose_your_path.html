@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Choose Your Path</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; background-color: #fcfaf3; max-width: 600px; margin: auto; }
+    h1 { color: #f4addd; text-align: center; }
+    #story { font-size: 1.2em; margin-bottom: 20px; }
+    button {
+      display: block;
+      margin: 10px 0;
+      padding: 10px 20px;
+      width: 100%;
+      font-size: 1em;
+      cursor: pointer;
+      background-color: #f4addd;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #d78ac1;
+      color: white;
+    }
+    #feedback {
+      margin-top: 20px;
+      font-weight: bold;
+      min-height: 40px;
+    }
+    #nextBtn {
+      margin-top: 30px;
+      background-color: #4caf50;
+      color: white;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Choose Your Path</h1>
+  <p id="story"></p>
+  <div id="options"></div>
+  <div id="feedback"></div>
+  <button id="nextBtn" onclick="nextScenario()">Next Scenario</button>
+
+  <script>
+    const scenarios = [
+      {
+        text: "You receive an unexpected email with an attachment from an unknown sender. What do you do?",
+        options: [
+          { text: "Open the attachment", feedback: "Oh no! The attachment contained malware and compromised your system. Always verify senders first." },
+          { text: "Delete the email", feedback: "Good job! You avoided a potential phishing attack by deleting a suspicious email." },
+          { text: "Mark the email as spam and report it", feedback: "Excellent! Reporting helps keep others safe too." }
+        ]
+      },
+      {
+        text: "You get an email from your bank asking you to verify your account by clicking a link. What do you do?",
+        options: [
+          { text: "Click the link and enter your details", feedback: "Risky! This could be a phishing attempt." },
+          { text: "Ignore the email", feedback: "Not the best choice. If it’s real, you might miss an important alert." },
+          { text: "Call your bank directly to confirm the request", feedback: "Great! Verifying with your bank directly is the safest way." }
+        ]
+      },
+      {
+        text: "You receive an email with a suspicious-looking URL. What do you do?",
+        options: [
+          { text: "Click the link to check it out", feedback: "Danger! The URL might lead to a scam website." },
+          { text: "Hover over the link to check the actual URL", feedback: "Good! Checking links before clicking helps spot scams." },
+          { text: "Forward the email to a friend to ask for advice", feedback: "Better to avoid spreading suspicious content." }
+        ]
+      },
+      {
+        text: "You get an email claiming you won a prize, asking you to provide your personal info. What do you do?",
+        options: [
+          { text: "Provide your information to claim the prize", feedback: "Never share personal info with unknown sources!" },
+          { text: "Delete the email", feedback: "Good! Ignoring scam emails is a safe practice." },
+          { text: "Search online to check if the prize offer is real", feedback: "Great! Verifying offers helps avoid scams." }
+        ]
+      },
+      {
+        text: "An email from your colleague has an unusual request and poor grammar. What do you do?",
+        options: [
+          { text: "Reply asking for clarification", feedback: "Good! Confirm before acting on suspicious requests." },
+          { text: "Ignore the email", feedback: "Might miss something important. Better to verify." },
+          { text: "Call your colleague to confirm the request", feedback: "Excellent! Direct contact is safest." }
+        ]
+      },
+      {
+        text: "You receive a calendar invite from someone you don't know. What do you do?",
+        options: [
+          { text: "Accept the invite to see the details", feedback: "Not safe! This might be a phishing attempt." },
+          { text: "Decline and delete the invite", feedback: "Good! Avoid accepting unknown invites." },
+          { text: "Contact your IT department about the invite", feedback: "Great! Reporting suspicious invites helps keep everyone safe." }
+        ]
+      },
+      {
+        text: "You receive an email asking you to reset your password urgently. What do you do?",
+        options: [
+          { text: "Click the link and reset your password", feedback: "Risky! This could be a phishing link." },
+          { text: "Ignore the email", feedback: "Not ideal. If it’s real, your account might be at risk." },
+          { text: "Go to the website directly and check your account status", feedback: "Excellent! Always access sites directly to be safe." }
+        ]
+      }
+    ];
+
+    let currentScenario = 0;
+
+    const storyElem = document.getElementById('story');
+    const optionsElem = document.getElementById('options');
+    const feedbackElem = document.getElementById('feedback');
+    const nextBtn = document.getElementById('nextBtn');
+
+    function loadScenario(index) {
+      feedbackElem.textContent = '';
+      nextBtn.style.display = 'none';
+      storyElem.textContent = scenarios[index].text;
+      optionsElem.innerHTML = '';
+      scenarios[index].options.forEach((option, i) => {
+        const btn = document.createElement('button');
+        btn.textContent = option.text;
+        btn.onclick = () => chooseOption(i);
+        optionsElem.appendChild(btn);
+      });
+    }
+
+    function chooseOption(optionIndex) {
+      const option = scenarios[currentScenario].options[optionIndex];
+      feedbackElem.textContent = option.feedback;
+      // Disable all buttons after choice
+      [...optionsElem.children].forEach(btn => btn.disabled = true);
+      nextBtn.style.display = currentScenario < scenarios.length -1 ? 'block' : 'none';
+    }
+
+    function nextScenario() {
+      currentScenario++;
+      if(currentScenario < scenarios.length){
+        loadScenario(currentScenario);
+      }
+      // Hide next button if last scenario
+      if(currentScenario === scenarios.length -1){
+        nextBtn.style.display = 'none';
+      }
+      feedbackElem.textContent = '';
+    }
+
+    // Load first scenario on page load
+    loadScenario(currentScenario);
+  </script>
+</body>
+</html>

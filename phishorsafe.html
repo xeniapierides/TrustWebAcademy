@@ -1,0 +1,152 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phish or Safe?</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background-color: #fcfaf3;
+      color: black; /* default text color black */
+    }
+    h1 {
+      color: #f4addd; /* pink header */
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+    .question {
+      margin-bottom: 25px;
+    }
+    .question p {
+      font-weight: 600;
+      font-size: 1.1em;
+      margin-bottom: 10px;
+      color: black; /* black question text */
+    }
+    button {
+      margin-right: 10px;
+      padding: 10px 20px;
+      background-color: #0082c9;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0,130,201,0.3);
+      border: none; /* no border */
+    }
+    button:last-child {
+      margin-right: 0;
+    }
+    button:hover:not(:disabled) {
+      background-color: #f4addd;
+      color: #0082c9;
+      box-shadow: 0 4px 10px rgba(244,173,221,0.7);
+    }
+    button.correct {
+      background-color: #4CAF50 !important; /* green */
+      color: white !important;
+      cursor: default;
+      box-shadow: none !important;
+    }
+    button.wrong {
+      background-color: #f44336 !important; /* red */
+      color: white !important;
+      cursor: default;
+      box-shadow: none !important;
+    }
+    button:disabled {
+      cursor: default;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <h1>Phish or Safe?</h1>
+
+  <div class="question" data-answer="phish">
+    <p>"Your account has been locked! Click here to verify immediately."</p>
+    <button onclick="chooseAnswer(this, 'phish')">Phish</button>
+    <button onclick="chooseAnswer(this, 'safe')">Safe</button>
+  </div>
+
+  <div class="question" data-answer="phish">
+    <p>"Hi its your mom can you send me money?"</p>
+    <button onclick="chooseAnswer(this, 'phish')">Phish</button>
+    <button onclick="chooseAnswer(this, 'safe')">Safe</button>
+  </div>
+
+  <div class="question" data-answer="safe">
+    <p>"Your recent order #12345 has shipped. Track it here."</p>
+    <button onclick="chooseAnswer(this, 'phish')">Phish</button>
+    <button onclick="chooseAnswer(this, 'safe')">Safe</button>
+  </div>
+
+  <div class="question" data-answer="safe">
+    <p>"Please log in to your account through our official website to review your recent activity."</p>
+    <button onclick="chooseAnswer(this, 'phish')">Phish</button>
+    <button onclick="chooseAnswer(this, 'safe')">Safe</button>
+  </div>
+
+  <div class="question" data-answer="phish">
+    <p>"We noticed suspicious login attempts. Update your password now to secure your account."</p>
+    <button onclick="chooseAnswer(this, 'phish')">Phish</button>
+    <button onclick="chooseAnswer(this, 'safe')">Safe</button>
+  </div>
+
+  <div class="question" data-answer="safe">
+    <p>"We’re sending you a reminder about your upcoming appointment scheduled for tomorrow at 3 PM."</p>
+    <button onclick="chooseAnswer(this, 'phish')">Phish</button>
+    <button onclick="chooseAnswer(this, 'safe')">Safe</button>
+  </div>
+
+  <div class="question" data-answer="phish">
+    <p>"Congratulations! You’ve won a free iPhone. Just enter your personal details here to claim your prize."</p>
+    <button onclick="chooseAnswer(this, 'phish')">Phish</button>
+    <button onclick="chooseAnswer(this, 'safe')">Safe</button>
+  </div>
+
+  <div class="question" data-answer="safe">
+    <p>"If you have any questions about your account, please contact our support team directly via our official website."</p>
+    <button onclick="chooseAnswer(this, 'phish')">Phish</button>
+    <button onclick="chooseAnswer(this, 'safe')">Safe</button>
+  </div>
+
+  <div class="question" data-answer="phish">
+    <p>"Urgent: Your bank needs to confirm your password now or your funds will be frozen. Click here to update."</p>
+    <button onclick="chooseAnswer(this, 'phish')">Phish</button>
+    <button onclick="chooseAnswer(this, 'safe')">Safe</button>
+  </div>
+
+  <script>
+    function chooseAnswer(button, selected) {
+      const questionDiv = button.closest('.question');
+      const correctAnswer = questionDiv.getAttribute('data-answer');
+
+      // Disable all buttons in this question
+      const buttons = questionDiv.querySelectorAll('button');
+      buttons.forEach(btn => {
+        btn.disabled = true;
+        // If correct answer, add green class
+        if (btn === button && selected === correctAnswer) {
+          btn.classList.add('correct');
+        } else if (btn === button && selected !== correctAnswer) {
+          btn.classList.add('wrong');
+        }
+      });
+
+      // Also highlight the correct button green if user was wrong
+      if (selected !== correctAnswer) {
+        buttons.forEach(btn => {
+          if (btn !== button && btn.getAttribute('onclick').includes(correctAnswer)) {
+            btn.classList.add('correct');
+          }
+        });
+      }
+    }
+  </script>
+</body>
+</html>
