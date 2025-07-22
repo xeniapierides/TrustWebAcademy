@@ -88,11 +88,14 @@ background-color: #fcfaf3;
     font-size: 60px;
     font-family: Angsana New;
   }
-  h5 {
+  h4 {
     font-family: Angsana New;
   }
   .orange {
     background-color: #ffcc66;
+  }
+  .size {
+    font-size: 1.2rem;
   }
   .pink {
     background-color: #f7c9df;
@@ -107,3 +110,13 @@ background-color: #fcfaf3;
     .articles {
       height: 195px;
     }
+
+    .my-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+.nav-link.active {
+  border-bottom: 1px solid #ff9900; 
+}
